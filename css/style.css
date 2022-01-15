@@ -1,0 +1,71 @@
+html    {
+    font-size: 20px;
+}
+::selection {
+    background-color: black;
+    color: white;
+    text-shadow: 1px 1px  rgba(24, 209, 255, 0.712);
+}
+
+.container {
+    background-image: linear-gradient( rgb(72, 161, 189), gray);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-container {
+    flex-basis: 350px;
+    border: 1px solid rgb(47, 47, 47);
+    border-radius: 10px;
+    box-shadow: inset 0 0 2px 4px rgb(255, 255, 255), 0 0 13px rgba(255, 255, 255, 0.623);
+    background-color: rgba(245, 245, 245, 0.692);
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================== */
+@media (min-width: 200px) and (max-width: 600px) {
+    /* Свойства применяются в пределах от меньшего к большему. */
+}
+
+@media (orientation: portrait) {
+    /* Если высота экрана больше ширины, свойство применяется */
+}
+@media (orientation: landscape) {
+    /* Если ширина экрана больше высоты, свойство применяется */
+}
+@import url("main.css") (min-width:481px) and (max-width:768px); 
+/* импортируем содержимое файла css, который предназначается для устройств с 
+разрешением экрана, находящегося в диапозоне от 481 пикселей до 768 пикселей */
+
+
+/*  320px — 480px: мобильные устройства;
+    481px — 768px: планшеты;
+    769px — 1024px: маленькие экраны, ноутбуки;
+    1025px — 1200px: большие экраны;
+    1201px и больше —  очень большие экраны, телевизоры. */
+
