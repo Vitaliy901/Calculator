@@ -42,17 +42,15 @@ html    {
     display: flex;
     align-items: center;
 }
-.g_buttons > div {
+.g_buttons > button {
     flex: 1 1;
     font-size: 2.7rem;
     text-align: center;
 }
-.g_buttons > div:nth-child(2) {
-    height: 2.7rem;
-    display: flex;
-    align-items: center;
+.g_buttons > button:nth-child(2) {
+    height: 3.45rem;
 }
-.g_buttons > div > span {
+.g_buttons > button > span {
     display: block;
     height: 7px;
     width: 35px;
@@ -60,7 +58,7 @@ html    {
     margin: 0 auto;
     border-radius: 5px;
 }
-.g_buttons > div:nth-child(4) {
+.g_buttons > button:nth-child(4) {
     font-weight: bold;
 }
 
@@ -97,6 +95,9 @@ html    {
 .g_numbers > .numb_container:nth-child(4){
     order: 1;
 }
+.g_numbers > .numb_container:nth-child(5){
+    order: 1;
+}
 /* ============================= */
 .numb_container > .number {
     border: 2px solid rgba(182, 180, 180, 0.733);
@@ -113,8 +114,7 @@ html    {
     color: cornsilk;
 }
 
-.g_numbers > .equals{
-    order: 1;
+.numb_container > .equals{
     text-align: center;
     border: 2px solid rgba(182, 180, 180, 0.733);
     border-radius: 5px;
@@ -123,6 +123,7 @@ html    {
     cursor: pointer;
     font-weight: bold;
     line-height: 3.1rem;
+    flex: 1 1;
 }
 .g_numbers > .equals:active {
     background-color: rgba(45, 213, 255, 0.568);
@@ -172,8 +173,10 @@ html    {
     .view {
         flex:1 1 0;
     }
+    .g_buttons > button:nth-child(2) {
+    height: 3.8rem;
 }
-
+}
 
 
 
