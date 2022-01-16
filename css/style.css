@@ -46,9 +46,10 @@ html    {
     flex: 1 1;
     font-size: 2.7rem;
     text-align: center;
+    font-weight: bold;
 }
 .g_buttons > button:nth-child(2) {
-    height: 3.45rem;
+    height: 3.4rem;
 }
 .g_buttons > button > span {
     display: block;
@@ -58,10 +59,7 @@ html    {
     margin: 0 auto;
     border-radius: 5px;
 }
-.g_buttons > button:nth-child(4), .g_buttons > button:nth-child(5)  {
-    font-size: 2.72rem;
-    font-weight: bold;
-}
+
 
 
 .g_buttons > .button {
@@ -179,13 +177,8 @@ html    {
         flex:1 1 0;
     }
     .g_buttons > button:nth-child(2) {
-    height: 3.8rem;
-    }
-    .g_buttons > button:nth-child(4), .g_buttons > button:nth-child(5) {
-        font-weight: bold;
-        font-size: 2.8rem;
-    }
-        
+        height: 3.7rem;
+    }        
 }
 
 
