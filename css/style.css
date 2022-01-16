@@ -39,7 +39,7 @@ html    {
     align-items: center;
 }
 .g_buttons > div {
-    flex: 1 1 40px;
+    flex: 1 1;
     font-size: 2rem;
     text-align: center;
 }
@@ -47,7 +47,7 @@ html    {
     height: 5px;
     border: none;
     background-color: #222222;
-    width: 40px;
+    width: 30px;
 }
 .g_buttons > div:nth-child(4) {
     font-weight: bold;
@@ -55,13 +55,36 @@ html    {
 }
 /* ============================== */
 
-.numbers {
+.g_numbers {
     display: flex;
-    font-size: 2rem;
+    flex-direction: column;
+    font-size: 3rem;
+}
+.g_numbers > .numb_container:first-child {
+    order: 1;
+}
+.g_numbers > .numb_container:nth-child(2){
+    order: 0;
+}
+.g_numbers > .numb_container:nth-child(3){
+    order: -1;
+}
+.g_numbers > .numb_container:nth-child(4){
+    order: 1;
+}
+.g_numbers > .clear {
+    order: 1;
+    text-align: center;
 }
 
+.numb_container {
+    display: flex;
+}
 
-
+.numb_container > .numbers {
+    flex: 1 1;
+    text-align: center;
+}
 
 
 
