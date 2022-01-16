@@ -27,7 +27,7 @@ html    {
     flex-direction: column;
     gap: 5px;
     padding: 5px;
-    flex-basis: 350px;
+    flex-basis: 450px;
 }
 .view {
     flex: 1 1 120px;
@@ -35,6 +35,7 @@ html    {
     font-size: 6rem;
     border: 2px solid rgba(0, 137, 172, 0.472);
     border-radius: 5px 5px 0 0;
+    box-shadow: inset 0 0 30px 2px rgba(69, 168, 224, 0.603);
 }
 /* ============================== */
 .g_buttons {
@@ -43,19 +44,40 @@ html    {
 }
 .g_buttons > div {
     flex: 1 1;
-    font-size: 2rem;
+    font-size: 2.7rem;
     text-align: center;
 }
-.g_buttons > div:nth-child(2) hr{
-    height: 5px;
-    border: none;
+.g_buttons > div:nth-child(2) {
+    height: 2.7rem;
+    display: flex;
+    align-items: center;
+}
+.g_buttons > div > span {
+    display: block;
+    height: 7px;
+    width: 35px;
     background-color: #222222;
-    width: 30px;
+    margin: 0 auto;
+    border-radius: 5px;
 }
 .g_buttons > div:nth-child(4) {
     font-weight: bold;
-    font-size: 2.9rem;
 }
+
+
+.g_buttons > .button {
+    border: 2px solid rgba(182, 180, 180, 0.733);
+    border-radius: 5px;
+    background-color: rgba(228, 250, 255, 0.363);
+    cursor: pointer;
+    transition: 0.7s;
+}
+.g_buttons > .button:active {
+    background-color: rgba(45, 213, 255, 0.568);
+    border: 2px solid rgba(105, 225, 255, 0.472);
+    transition: none;
+}
+
 /* ============================== */
 
 .g_numbers {
@@ -81,12 +103,13 @@ html    {
     border-radius: 5px;
     background-color: rgba(228, 250, 255, 0.363);
     cursor: pointer;
-    transition: 1s;
+    transition: 0.7s;
 }
 .numb_container > .number:active  {
     background-color: rgba(45, 213, 255, 0.568);
     border: 2px solid rgba(105, 225, 255, 0.472);
     transition: none;
+    color: cornsilk;
 }
 
 .g_numbers > .equals{
@@ -95,13 +118,15 @@ html    {
     border: 2px solid rgba(182, 180, 180, 0.733);
     border-radius: 5px;
     background-color: rgba(228, 250, 255, 0.363);
-    transition: 1s;
+    transition: 0.7s;
     cursor: pointer;
+    font-weight: bold;
 }
 .g_numbers > .equals:active {
     background-color: rgba(45, 213, 255, 0.568);
     border: 2px solid rgba(105, 225, 255, 0.472);
     transition: none;
+    color: cornsilk;
 }
 /* ================================== */
 .g_numbers > .numb_container:nth-child(4) > .number:nth-child(2){
