@@ -2,11 +2,14 @@ html    {
     font-size: 20px;
 }
 ::selection {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(0, 0, 0);
+}
+.view::selection {
     background-color: black;
     color: white;
     text-shadow: 1px 1px  rgba(24, 209, 255, 0.712);
 }
-
 .container {
     background-image: linear-gradient( rgb(72, 161, 189), gray);
     min-height: 100vh;
@@ -72,16 +75,45 @@ html    {
 .g_numbers > .numb_container:nth-child(4){
     order: 1;
 }
-.g_numbers > .clear {
+/* ============================= */
+.numb_container > .number {
+    border: 2px solid rgba(182, 180, 180, 0.733);
+    border-radius: 5px;
+    background-color: rgba(228, 250, 255, 0.363);
+    cursor: pointer;
+    transition: 1s;
+}
+.numb_container > .number:active  {
+    background-color: rgba(45, 213, 255, 0.568);
+    border: 2px solid rgba(105, 225, 255, 0.472);
+    transition: none;
+}
+
+.g_numbers > .equals{
     order: 1;
     text-align: center;
+    border: 2px solid rgba(182, 180, 180, 0.733);
+    border-radius: 5px;
+    background-color: rgba(228, 250, 255, 0.363);
+    transition: 1s;
+    cursor: pointer;
+}
+.g_numbers > .equals:active {
+    background-color: rgba(45, 213, 255, 0.568);
+    border: 2px solid rgba(105, 225, 255, 0.472);
+    transition: none;
+}
+/* ================================== */
+.g_numbers > .numb_container:nth-child(4) > .number:nth-child(2){
+    padding-bottom: 5px;
 }
 
 .numb_container {
     display: flex;
+ 
 }
 
-.numb_container > .numbers {
+.numb_container > .number {
     flex: 1 1;
     text-align: center;
 }
