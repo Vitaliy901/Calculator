@@ -75,6 +75,7 @@ html    {
     background-color: rgba(45, 213, 255, 0.568);
     border: 2px solid rgba(105, 225, 255, 0.472);
     transition: none;
+    border-radius: 5px;
 }
 
 /* ============================== */
@@ -113,6 +114,7 @@ html    {
     border: 2px solid rgba(105, 225, 255, 0.472);
     transition: none;
     color: cornsilk;
+    border-radius: 5px;
 }
 
 .numb_container > .equals{
@@ -131,6 +133,7 @@ html    {
     border: 2px solid rgba(105, 225, 255, 0.472);
     transition: none;
     color: cornsilk;
+    border-radius: 5px;
 }
 /* ================================== */
 .g_numbers > .numb_container:nth-child(4) > .number:nth-child(2){
@@ -155,6 +158,7 @@ html    {
         justify-content: none;
         align-items: stretch ;
     }
+    
 }
 @media (max-height: 480px) {
     html {
