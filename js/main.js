@@ -6,6 +6,17 @@ let numbers = document.querySelectorAll('.nb');
 let clean = document.querySelector('.clean');
 let clear = document.querySelector('.clear');
 let equal = document.querySelector('.equals');
+// =====================displaySize=========================
+
+const viewWidth = view.offsetWidth;
+function displaySize() {
+    display.classList.remove('newSize');
+    if (display.offsetWidth >= viewWidth) {
+        display.classList.add('newSize');
+    }
+    
+
+}
 
 // изьятие ","
 let dot;
@@ -21,17 +32,15 @@ for (let elem of allelements) {
     && elem.className!== "equals" && elem.innerHTML !== ",") {
         elem.addEventListener('click', function () {
             display.innerHTML += this.innerHTML
+            displaySize()
         })
     }
 }
-// =====================displayWidth=========================
-let displayWidth = display.offsetWidth;
-let viewWidth = view.offsetWidth;
-// function displaySize(params) {
-    
-// }
 
-console.log(display);
+
+
+
+
 
 
 
@@ -40,9 +49,11 @@ console.log(display);
 dot.addEventListener('click', function () {
     if (display.innerHTML == '' && dot.innerHTML !== display.innerHTML) {
         display.innerHTML = dot.innerHTML
+        displaySize()
     }
     if (Number.isInteger(+display.innerHTML )) {
         display.innerHTML += dot.innerHTML
+        displaySize()
     }
 });
 
@@ -51,7 +62,9 @@ clean.addEventListener('click', function () {
     let arr = display.innerHTML.split('');
     arr.pop()
     display.innerHTML = arr.join('');
+    displaySize()
 });
 clear.addEventListener('click', function () {
     display.innerHTML = '';
+    displaySize()
 });
