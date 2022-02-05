@@ -53,40 +53,28 @@ html    {
     animation-iteration-count: infinite;
 }
 /* ============================== */
-.g_buttons {
+.g_operators {
     display: flex;
     align-items: center;
 }
-.g_buttons > button {
+.g_operators > button {
     flex: 1 1;
     font-size: 2.7rem;
     text-align: center;
     font-weight: bold;
 }
-.g_buttons > button:nth-child(2) {
+.g_operators > button:nth-child(2) {
     height: 3.4rem;
 }
-.g_buttons > button > span {
-    display: block;
-    height: 5px;
-    width: 35px;
-    background-color: #222222;
-    margin: 0 auto;
-    border-radius: 5px;
-    transition: 0.7s;
-}
-.g_buttons > button:active > span{
-    background-color: cornsilk;
-    transition: none;
-}
-.g_buttons > .button {
+
+.g_operators > .operator {
     border: 2px solid rgba(182, 180, 180, 0.733);
     border-radius: 5px;
     background-color: rgba(228, 250, 255, 0.363);
     cursor: pointer;
     transition: 0.7s;
 }
-.g_buttons > .button:active {
+.g_operators > .operator:active {
     background-color: rgba(45, 213, 255, 0.568);
     border: 2px solid rgba(105, 225, 255, 0.472);
     border-radius: 5px;
