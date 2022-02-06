@@ -12,11 +12,10 @@ let factorial = document.querySelector('#factorial');
 let percent = document.querySelector('#percent');
 
 let strInner = '';
-let earlyResult = ''
+let earlyResult = '';
+let earlyResultInner = '';
 
-//====================strInner=============================
-
-
+//====================operators=============================
 
 subtract.addEventListener('click', function () {
     display.innerHTML += this.innerHTML
@@ -38,6 +37,7 @@ percent.addEventListener('click', function () {
     display.innerHTML += this.innerHTML
 
 })
+equal.addEventListener('click', calc);
 
 // всем кнопкам кроме "," clean, clear, equals вешает событие.
 for (let elem of allelements) {
@@ -70,7 +70,6 @@ for (let elem of allelements) {
     }
 }
 
-
 dot.addEventListener('click', function () {
     if (display.innerHTML == '' && '.' !== display.innerHTML) {
         display.innerHTML = '.'
@@ -82,16 +81,19 @@ dot.addEventListener('click', function () {
     }
     strInner += '.'
 });
+
 // стереть символ.
 clean.addEventListener('click', function () {
     let arr = display.innerHTML.split('');
     arr.pop();
     display.innerHTML = arr.join('');
+    
     let arrInner = strInner.split('')
     arrInner.pop();
     strInner = arrInner.join('');
-    earlyResult = arrInner.join('');
+
 });
+
 // очистить поле.
 clear.addEventListener('click', function () {
     display.innerHTML = '';
@@ -100,18 +102,19 @@ clear.addEventListener('click', function () {
     earlyResult = '';
 });
 
-//========================equal=======================
-equal.addEventListener('click', calc);
-
 
 //==============calc=====================
 function calc() {
     console.log(strInner);
-    if (display.innerHTML != eval(strInner)) {
+    console.log(display.innerHTML);
+    console.log(earlyResult);
+    if (display.innerHTML != String(eval(strInner))) {
         earlyResult = display.innerHTML;
+        earlyResultInner  =  strInner;
         strInner = String(eval(strInner));
-        return display.innerHTML = eval(strInner);
+        return display.innerHTML = String(eval(strInner));
        
     }
     display.innerHTML = earlyResult;
+    strInner = earlyResultInner;
 }
