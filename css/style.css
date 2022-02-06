@@ -19,10 +19,6 @@ html    {
 }
 
 .flex-container {
-    border: 1px solid rgb(47, 47, 47);
-    border-radius: 10px;
-    box-shadow: inset 0 0 2px 4px rgb(255, 255, 255), 0 0 13px rgba(255, 255, 255, 0.623);
-    background-color: rgba(245, 245, 245, 0.692);
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -39,7 +35,7 @@ html    {
     box-shadow: inset 0 0 30px 2px rgba(69, 168, 224, 0.603);
     display: flex;
     justify-content: flex-end;
-
+    
 }
 .display::after {
     content: "";
@@ -73,7 +69,7 @@ html    {
 }
 
 .g_operators > .operator {
-    border: 2px solid rgba(182, 180, 180, 0.733);
+    border: 2px solid rgba(133, 133, 133, 0.733);
     border-radius: 5px;
     background-color: rgba(228, 250, 255, 0.363);
     cursor: pointer;
@@ -107,7 +103,7 @@ html    {
 
 /* ============================= */
 .numb_container > .number {
-    border: 2px solid rgba(182, 180, 180, 0.733);
+    border: 2px solid rgba(133, 133, 133, 0.733);
     border-radius: 5px;
     background-color: rgba(228, 250, 255, 0.363);
     cursor: pointer;
@@ -124,7 +120,7 @@ html    {
 
 .numb_container > .equals{
     text-align: center;
-    border: 2px solid rgba(182, 180, 180, 0.733);
+    border: 2px solid rgba(133, 133, 133, 0.733);
     border-radius: 5px;
     background-color: rgba(228, 250, 255, 0.363);
     transition: 0.7s;
