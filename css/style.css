@@ -70,9 +70,6 @@ html    {
     text-align: center;
     font-weight: bold;
 }
-.g_operators > button:nth-child(2) {
-    height: 3.4rem;
-}
 
 .g_operators > .operator {
     border: 2px solid rgba(182, 180, 180, 0.733);
