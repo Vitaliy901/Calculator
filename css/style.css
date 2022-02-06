@@ -160,7 +160,6 @@ html    {
     }
     .view {
        padding-top: 15%;
-       font-size: 4rem;
     }
     .view::after {
         height: 4rem;
