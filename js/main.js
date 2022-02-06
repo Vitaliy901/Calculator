@@ -18,24 +18,33 @@ let earlyResultInner = '';
 //====================operators=============================
 
 subtract.addEventListener('click', function () {
-    display.innerHTML += this.innerHTML
-    strInner += "-"
+    if (strInner.slice(-1) !== "-" ) {
+        display.innerHTML += this.innerHTML
+        strInner += "-"
+    }
+    
 })
 multiply.addEventListener('click', function () {
-    display.innerHTML += this.innerHTML
-    strInner += "*"
+    if (strInner.slice(-1) !== "*" ) {
+        display.innerHTML += this.innerHTML
+        strInner += "*"
+    }
 })
 divide.addEventListener('click', function () {
+   if (strInner.slice(-1) !== "/" ) {
     display.innerHTML += this.innerHTML
     strInner += "/"
+   }
 })
 factorial.addEventListener('click', function () {
     display.innerHTML += this.innerHTML
 
 })
 percent.addEventListener('click', function () {
-    display.innerHTML += this.innerHTML
-
+    if (!strInner.includes('%')) {
+        display.innerHTML += this.innerHTML
+        strInner += '%'
+       }
 })
 equal.addEventListener('click', calc);
 
@@ -71,12 +80,15 @@ for (let elem of allelements) {
 }
 
 dot.addEventListener('click', function () {
+
     if (display.innerHTML == '' && '.' !== display.innerHTML) {
         display.innerHTML = '.'
+        strInner += '.'
         displaySize()
     }
-    if (Number.isInteger(+display.innerHTML )) {
+    if (Number.isInteger(+display.innerHTML)) {
         display.innerHTML += '.'
+        strInner += '.' 
         displaySize()
     }
     strInner += '.'
@@ -102,11 +114,19 @@ clear.addEventListener('click', function () {
     earlyResult = '';
 });
 
-
 //==============calc=====================
 function calc() {
-    console.log(strInner);
-    console.log(display.innerHTML);
+    // console.log(strInner);
+    // console.log(display.innerHTML);
+
+    if (display.innerHTML.includes("%")) {
+        let arr = display.innerHTML.split('%');
+        earlyResult = display.innerHTML;
+        earlyResultInner  =  strInner;
+        strInner = '' + prcnt(arr[0], arr[1]);
+        return display.innerHTML = '' + prcnt(arr[0], arr[1]);
+       
+    }
 
     if (display.innerHTML != String(eval(strInner)) && display.innerHTML != '' && strInner != '' ) {
         earlyResult = display.innerHTML;
@@ -118,4 +138,8 @@ function calc() {
     
     display.innerHTML = earlyResult;
     strInner = earlyResultInner;
+}
+//================percent======================
+function prcnt(a, b) {
+    return a * b / 100;
 }
