@@ -107,14 +107,15 @@ clear.addEventListener('click', function () {
 function calc() {
     console.log(strInner);
     console.log(display.innerHTML);
-    console.log(earlyResult);
-    if (display.innerHTML != String(eval(strInner))) {
+
+    if (display.innerHTML != String(eval(strInner)) && display.innerHTML != '' && strInner != '' ) {
         earlyResult = display.innerHTML;
         earlyResultInner  =  strInner;
         strInner = String(eval(strInner));
         return display.innerHTML = String(eval(strInner));
        
     }
+    
     display.innerHTML = earlyResult;
     strInner = earlyResultInner;
 }
