@@ -1,13 +1,58 @@
 let allelements = document.querySelectorAll('button');
 let display = document.querySelector('.display');
 let view = document.querySelector('.view');
-let operators = document.querySelectorAll('.operator');
 let clean = document.querySelector('.clean');
 let clear = document.querySelector('.clear');
 let equal = document.querySelector('.equals');
 
-// =====================displaySize=========================
+let subtract = document.querySelector('#subtract');
+let multiply = document.querySelector('#multiply');
+let divide= document.querySelector('#divide');
+let factorial = document.querySelector('#factorial');
+let percent = document.querySelector('#percent');
 
+let strInner = '';
+let earlyResult = ''
+
+//====================strInner=============================
+
+
+
+subtract.addEventListener('click', function () {
+    display.innerHTML += this.innerHTML
+    strInner += "-"
+})
+multiply.addEventListener('click', function () {
+    display.innerHTML += this.innerHTML
+    strInner += "*"
+})
+divide.addEventListener('click', function () {
+    display.innerHTML += this.innerHTML
+    strInner += "/"
+})
+factorial.addEventListener('click', function () {
+    display.innerHTML += this.innerHTML
+
+})
+percent.addEventListener('click', function () {
+    display.innerHTML += this.innerHTML
+
+})
+
+// всем кнопкам кроме "," clean, clear, equals вешает событие.
+for (let elem of allelements) {
+    if (elem.className !== "number clean" && elem.className !== "number clear" 
+    && elem.className!== "equals" && elem.innerHTML !== "," && elem.id !== subtract.id &&
+    elem.id !== multiply.id && elem.id !== divide.id && elem.id !== factorial.id && elem.id !== percent.id) {
+        elem.addEventListener('click', function () {
+            display.innerHTML += this.innerHTML
+            displaySize()
+            strInner += this.innerHTML
+        })
+    }
+}
+
+// =====================displaySize=========================
 const viewWidth = view.offsetWidth - 10;
 function displaySize() {
     display.classList.remove('newSize');
@@ -16,24 +61,15 @@ function displaySize() {
     }
 }
 
+
 // получение "," из масива 
 let dot;
-for (let elem of operators) {
+for (let elem of allelements) {
     if (elem.innerHTML == ',') {
         dot = elem;
     }
 }
 
-// всем кнопкам кроме "," clean, clear, equals вешает событие.
-for (let elem of allelements) {
-    if (elem.className !== "number clean" && elem.className !== "number clear" 
-    && elem.className!== "equals" && elem.innerHTML !== ",") {
-        elem.addEventListener('click', function () {
-            display.innerHTML += this.innerHTML
-            displaySize()
-        })
-    }
-}
 
 dot.addEventListener('click', function () {
     if (display.innerHTML == '' && '.' !== display.innerHTML) {
@@ -44,18 +80,24 @@ dot.addEventListener('click', function () {
         display.innerHTML += '.'
         displaySize()
     }
+    strInner += '.'
 });
 // стереть символ.
 clean.addEventListener('click', function () {
     let arr = display.innerHTML.split('');
-    arr.pop()
+    arr.pop();
     display.innerHTML = arr.join('');
-    displaySize()
+    let arrInner = strInner.split('')
+    arrInner.pop();
+    strInner = arrInner.join('');
+    earlyResult = arrInner.join('');
 });
 // очистить поле.
 clear.addEventListener('click', function () {
     display.innerHTML = '';
     displaySize()
+    strInner = '';
+    earlyResult = '';
 });
 
 //========================equal=======================
@@ -63,8 +105,13 @@ equal.addEventListener('click', calc);
 
 
 //==============calc=====================
-function calc(elem) {
-    if (condition) {
-        
+function calc() {
+    console.log(strInner);
+    if (display.innerHTML != eval(strInner)) {
+        earlyResult = display.innerHTML;
+        strInner = String(eval(strInner));
+        return display.innerHTML = eval(strInner);
+       
     }
+    display.innerHTML = earlyResult;
 }
