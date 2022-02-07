@@ -81,17 +81,20 @@ for (let elem of allelements) {
 
 dot.addEventListener('click', function () {
 
+let lastNum = strInner.substr(strInner.split(/[*/%+\-]/g).join('-').lastIndexOf('-') +1);
+console.log(lastNum);
+
     if (display.innerHTML == '' && '.' !== display.innerHTML) {
         display.innerHTML = '.'
         strInner += '.'
         displaySize()
-    }
-    if (Number.isInteger(+display.innerHTML)) {
+    } else if (Number.isInteger(+lastNum)) {
         display.innerHTML += '.'
-        strInner += '.' 
+        strInner += '.'
         displaySize()
     }
-    strInner += '.'
+
+
 });
 
 // стереть символ.
