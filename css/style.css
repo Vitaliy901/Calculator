@@ -160,7 +160,7 @@ html    {
         min-height: 100vh;
         display: flex;
         justify-content: none;
-        align-items: center;
+
     }
     .flex-container {
         margin: 0 2rem;
