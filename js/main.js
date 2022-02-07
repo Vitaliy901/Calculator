@@ -14,7 +14,7 @@ let percent = document.querySelector('#percent');
 let strInner = '';
 let earlyResult = '';
 let earlyResultInner = '';
-let viewFix = 0;
+
 //====================operators=============================
 
 subtract.addEventListener('click', function () {
@@ -63,12 +63,10 @@ for (let elem of allelements) {
 
 // =====================displaySize=========================
 const viewWidth = view.offsetWidth - 10;
-const viewHeight = view.offsetHeight;
-console.log(viewHeight)
 function displaySize() {
-    display.classList.remove('newSize2rem');
+    display.classList.remove('newSize');
     if (display.offsetWidth >= viewWidth) {
-        display.classList.add('newSize2rem');
+        display.classList.add('newSize');
     }
 }
 
