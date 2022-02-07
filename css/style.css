@@ -39,7 +39,7 @@ html    {
 }
 .display {
     overflow-y: hidden;
-    overflow-x: scroll;
+    overflow-x: auto;
     white-space: nowrap 
 }
 .view::after {
