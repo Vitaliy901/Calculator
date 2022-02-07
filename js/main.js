@@ -84,13 +84,12 @@ for (let elem of allelements) {
 dot.addEventListener('click', function () {
 
 let lastNum = strInner.substr(strInner.split(/[*/%+\-]/g).join('-').lastIndexOf('-') +1);
-console.log(lastNum);
 
     if (display.innerHTML == '' && '.' !== display.innerHTML) {
         display.innerHTML = '.'
         strInner += '.'
         displaySize()
-    } else if (Number.isInteger(+lastNum)) {
+    } else if (!lastNum.includes('.')) {
         display.innerHTML += '.'
         strInner += '.'
         displaySize()
