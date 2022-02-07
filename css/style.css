@@ -160,7 +160,7 @@ html    {
         min-height: 100vh;
         display: flex;
         justify-content: none;
-        align-items: stretch ;
+        align-items: center;
     }
     .flex-container {
         margin: 0 2rem;
@@ -170,6 +170,7 @@ html    {
        font-size: 4rem;
         flex:1 1 0;
         width: 320px;
+        align-items: flex-end;
     }
     .view::after {
         height: 4rem;
