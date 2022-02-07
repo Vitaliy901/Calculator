@@ -10,13 +10,26 @@ let multiply = document.querySelector('#multiply');
 let divide= document.querySelector('#divide');
 let factorial = document.querySelector('#factorial');
 let percent = document.querySelector('#percent');
-
+let addition = '';
 let strInner = '';
 let earlyResult = '';
 let earlyResultInner = '';
 let viewFix = 0;
-//====================operators=============================
 
+// ============получение + addition====================
+for (let elem of allelements) {
+    if (elem.innerHTML == '+') {
+        addition = elem;
+        console.log(addition);
+    }
+}
+//====================operators=============================
+addition.addEventListener('click', function () {
+    if (strInner.slice(-1) !== "+" ) {
+        display.innerHTML += this.innerHTML
+        strInner += "+"
+    }
+})
 subtract.addEventListener('click', function () {
     if (strInner.slice(-1) !== "-" ) {
         display.innerHTML += this.innerHTML
@@ -48,11 +61,13 @@ percent.addEventListener('click', function () {
 })
 equal.addEventListener('click', calc);
 
+
 // всем кнопкам кроме "," clean, clear, equals вешает событие.
 for (let elem of allelements) {
     if (elem.className !== "number clean" && elem.className !== "number clear" 
     && elem.className!== "equals" && elem.innerHTML !== "," && elem.id !== subtract.id &&
-    elem.id !== multiply.id && elem.id !== divide.id && elem.id !== factorial.id && elem.id !== percent.id) {
+    elem.id !== multiply.id && elem.id !== divide.id && elem.id !== factorial.id && elem.id !== percent.id
+    && elem.innerHTML !== '+') {
         elem.addEventListener('click', function () {
             display.innerHTML += this.innerHTML
             displaySize()
@@ -69,6 +84,7 @@ function displaySize() {
     display.classList.remove('newSize2rem');
     if (display.offsetWidth >= viewWidth) {
         display.classList.add('newSize2rem');
+
     }
 }
 
@@ -94,8 +110,6 @@ let lastNum = strInner.substr(strInner.split(/[*/%+\-]/g).join('-').lastIndexOf(
         strInner += '.'
         displaySize()
     }
-
-
 });
 
 // стереть символ.

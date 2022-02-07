@@ -5,7 +5,7 @@ html    {
     background-color: rgba(255, 255, 255, 0);
     color: rgb(0, 0, 0);
 }
-.view::selection {
+.display::selection {
     background-color: black;
     color: white;
     text-shadow: 1px 1px  rgba(24, 209, 255, 0.712);
@@ -35,18 +35,21 @@ html    {
     box-shadow: inset 0 0 30px 2px rgba(69, 168, 224, 0.603);
     display: flex;
     justify-content: flex-end;
-    height: 144px;
+    width: 450px;
 }
-.display::after {
+.display {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    white-space: nowrap 
+}
+.view::after {
     content: "";
     height: 6rem;
     width: 0.2rem;
     display: inline-block;
     background-color: rgba(14, 12, 41, 0.822);
     border-radius: 10px;
-    position: relative;
-    top: 0.5rem;
-
+    margin: 0.1rem 0;
     animation-name: stick;
     animation-duration: 0.8s;
     animation-iteration-count: infinite;
@@ -54,6 +57,7 @@ html    {
 
 .newSize2rem {
     font-size: 2rem;
+    align-self: flex-end;
 }
 
 /* ============================== */
@@ -158,8 +162,14 @@ html    {
         justify-content: none;
         align-items: stretch ;
     }
+    .flex-container {
+        margin: 0 2rem;
+        flex-basis: 320px;
+    }
     .view {
-       padding-top: 15%;
+       font-size: 4rem;
+        flex:1 1 0;
+        width: 320px;
     }
     .view::after {
         height: 4rem;
@@ -183,6 +193,7 @@ html    {
     }
     .view {
         flex:1 1 0;
+        width: auto;
     }
     .g_buttons > button:nth-child(2) {
         height: 3.7rem;
