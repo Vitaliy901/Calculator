@@ -29,7 +29,7 @@ for (let elem of allelements) {
     elem.id !== multiply.id && elem.id !== divide.id && elem.id !== factorial.id && elem.id !== percent.id
     && elem.innerHTML !== '+') {
         elem.addEventListener('click', function lastButtons() {
-            if (!strInner.includes('n!')) {
+            if (!display.innerHTML.includes('n!')) {
                 display.innerHTML += this.innerHTML
                 strInner += this.innerHTML
                 displaySize()
@@ -38,37 +38,35 @@ for (let elem of allelements) {
     }
 }
 //====================operators=============================
-addition.addEventListener('click', function addition() {
+addition.addEventListener('click', function () {
   
-    if (!strInner.endsWith('+') && !strInner.includes('n!')) {
+    if (!strInner.endsWith('+') && !display.innerHTML.includes('n!')) {
         display.innerHTML += this.innerHTML
         strInner += "+"
     }
 })
-subtract.addEventListener('click', function subtract() {
-    if (!strInner.endsWith('-') && !strInner.includes('n!')) {
+subtract.addEventListener('click', function () {
+    if (!strInner.endsWith('-') && !display.innerHTML.includes('n!')) {
         display.innerHTML += this.innerHTML
         strInner += "-"
     }
     
 })
-multiply.addEventListener('click', function multiply() {
-    if (!strInner.endsWith('*') && !strInner.includes('n!')) {
+multiply.addEventListener('click', function() {
+    if (!strInner.endsWith('*') && !display.innerHTML.includes('n!')) {
         display.innerHTML += this.innerHTML
         strInner += "*"
     }
 })
-divide.addEventListener('click', function divide() {
-   if (!strInner.endsWith('/') && !strInner.includes('n!')) {
+divide.addEventListener('click', function() {
+   if (!strInner.endsWith('/') && !display.innerHTML.includes('n!')) {
     display.innerHTML += this.innerHTML
     strInner += "/"
    }
 })
 factorial.addEventListener('click', function () {
-
-   if (!strInner.includes('n!')) {
+   if (!display.innerHTML.includes('n!')) {
         display.innerHTML += this.innerHTML
-        strInner += "n!"
    }
 
 })
@@ -128,7 +126,7 @@ clean.addEventListener('click', function () {
     let arrInner = strInner.split('')
     arrInner.pop();
     strInner = arrInner.join('');
-    if (strInner.endsWith('n!') || strInner.endsWith('n')) {
+    if (display.innerHTML.endsWith('n!') || display.innerHTML.endsWith('n')) {
         let arr = display.innerHTML.split('');
         arr.pop();
         display.innerHTML = arr.join('');
@@ -149,9 +147,18 @@ clear.addEventListener('click', function () {
 
 //==============calc=====================
 function calc() {
-    // console.log(strInner);
-    // console.log(display.innerHTML);
-
+    let result 
+    let arrOut = strInner.replace(/[*/%+\-]/g, '!').split('')
+    if (display.innerHTML.includes("n!") ) {
+        earlyResult = display.innerHTML;
+        earlyResultInner  =  strInner;
+        
+        if (arrOut[0] == '!') {
+            return display.innerHTML = 'Error! Clear excessive operators';
+        }
+        strInner = fact(String(eval(strInner)));
+        return display.innerHTML =  strInner;
+    }
     if (display.innerHTML.includes("%")) {
         let arr = display.innerHTML.split('%');
         earlyResult = display.innerHTML;
@@ -160,15 +167,18 @@ function calc() {
         return display.innerHTML = '' + prcnt(arr[0], arr[1]);
        
     }
-
-    if (display.innerHTML != String(eval(strInner)) && display.innerHTML != '' && strInner != '' ) {
+    if (arrOut[0] != '!') {
+        result = String(eval(strInner));
+    }
+    
+    if (display.innerHTML != result && display.innerHTML != '' && strInner != '' &&
+            display.innerHTML != 'Error! Clear excessive operators') {
         earlyResult = display.innerHTML;
         earlyResultInner  =  strInner;
         strInner = String(eval(strInner));
         return display.innerHTML = String(eval(strInner));
-       
+
     }
-    
     display.innerHTML = earlyResult;
     strInner = earlyResultInner;
 }
@@ -178,6 +188,7 @@ function prcnt(a, b) {
 }
 //================factorial======================
 function fact(num) {
+    
     let amount = 1;
     for (let i = 2; i <= +num; i++) {
         amount *= i;
