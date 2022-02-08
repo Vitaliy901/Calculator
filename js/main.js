@@ -20,41 +20,60 @@ let viewFix = 0;
 for (let elem of allelements) {
     if (elem.innerHTML == '+') {
         addition = elem;
-        console.log(addition);
+    }
+}
+// всем кнопкам кроме "," clean, clear, equals вешает событие.
+for (let elem of allelements) {
+    if (elem.className !== "number clean" && elem.className !== "number clear" 
+    && elem.className!== "equals" && elem.innerHTML !== "," && elem.id !== subtract.id &&
+    elem.id !== multiply.id && elem.id !== divide.id && elem.id !== factorial.id && elem.id !== percent.id
+    && elem.innerHTML !== '+') {
+        elem.addEventListener('click', function lastButtons() {
+            if (!strInner.includes('n!')) {
+                display.innerHTML += this.innerHTML
+                strInner += this.innerHTML
+                displaySize()
+            }
+        })
     }
 }
 //====================operators=============================
-addition.addEventListener('click', function () {
-    if (strInner.slice(-1) !== "+" ) {
+addition.addEventListener('click', function addition() {
+  
+    if (!strInner.endsWith('+') && !strInner.includes('n!')) {
         display.innerHTML += this.innerHTML
         strInner += "+"
     }
 })
-subtract.addEventListener('click', function () {
-    if (strInner.slice(-1) !== "-" ) {
+subtract.addEventListener('click', function subtract() {
+    if (!strInner.endsWith('-') && !strInner.includes('n!')) {
         display.innerHTML += this.innerHTML
         strInner += "-"
     }
     
 })
-multiply.addEventListener('click', function () {
-    if (strInner.slice(-1) !== "*" ) {
+multiply.addEventListener('click', function multiply() {
+    if (!strInner.endsWith('*') && !strInner.includes('n!')) {
         display.innerHTML += this.innerHTML
         strInner += "*"
     }
 })
-divide.addEventListener('click', function () {
-   if (strInner.slice(-1) !== "/" ) {
+divide.addEventListener('click', function divide() {
+   if (!strInner.endsWith('/') && !strInner.includes('n!')) {
     display.innerHTML += this.innerHTML
     strInner += "/"
    }
 })
 factorial.addEventListener('click', function () {
-    display.innerHTML += this.innerHTML
+
+   if (!strInner.includes('n!')) {
+        display.innerHTML += this.innerHTML
+        strInner += "n!"
+   }
 
 })
-percent.addEventListener('click', function () {
-    if (!strInner.includes('%')) {
+percent.addEventListener('click', function percent() {
+    if (!strInner.includes('%') && !strInner.includes('n!')) {
         display.innerHTML += this.innerHTML
         strInner += '%'
        }
@@ -62,24 +81,12 @@ percent.addEventListener('click', function () {
 equal.addEventListener('click', calc);
 
 
-// всем кнопкам кроме "," clean, clear, equals вешает событие.
-for (let elem of allelements) {
-    if (elem.className !== "number clean" && elem.className !== "number clear" 
-    && elem.className!== "equals" && elem.innerHTML !== "," && elem.id !== subtract.id &&
-    elem.id !== multiply.id && elem.id !== divide.id && elem.id !== factorial.id && elem.id !== percent.id
-    && elem.innerHTML !== '+') {
-        elem.addEventListener('click', function () {
-            display.innerHTML += this.innerHTML
-            displaySize()
-            strInner += this.innerHTML
-        })
-    }
-}
+
 
 // =====================displaySize=========================
 const viewWidth = view.offsetWidth - 10;
 const viewHeight = view.offsetHeight;
-console.log(viewHeight)
+
 function displaySize() {
     display.classList.remove('newSize2rem');
     if (display.offsetWidth >= viewWidth) {
@@ -121,7 +128,15 @@ clean.addEventListener('click', function () {
     let arrInner = strInner.split('')
     arrInner.pop();
     strInner = arrInner.join('');
-
+    if (strInner.endsWith('n!') || strInner.endsWith('n')) {
+        let arr = display.innerHTML.split('');
+        arr.pop();
+        display.innerHTML = arr.join('');
+    
+        let arrInner = strInner.split('')
+        arrInner.pop();
+        strInner = arrInner.join('');
+    }
 });
 
 // очистить поле.
@@ -160,4 +175,12 @@ function calc() {
 //================percent======================
 function prcnt(a, b) {
     return a * b / 100;
+}
+//================factorial======================
+function fact(num) {
+    let amount = 1;
+    for (let i = 2; i <= +num; i++) {
+        amount *= i;
+    }
+    return amount + '';
 }
