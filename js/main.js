@@ -71,7 +71,7 @@ factorial.addEventListener('click', function () {
 
 })
 percent.addEventListener('click', function percent() {
-    if (!strInner.includes('%') && !strInner.includes('n!')) {
+    if (!strInner.includes('%') && !display.innerHTML.includes('n!')) {
         display.innerHTML += this.innerHTML
         strInner += '%'
        }
@@ -110,7 +110,7 @@ let lastNum = strInner.substr(strInner.split(/[*/%+\-]/g).join('-').lastIndexOf(
         display.innerHTML = '.'
         strInner += '.'
         displaySize()
-    } else if (!lastNum.includes('.')) {
+    } else if (!lastNum.includes('.') && !display.innerHTML.includes('n!')) {
         display.innerHTML += '.'
         strInner += '.'
         displaySize()
@@ -156,7 +156,7 @@ function calc() {
         if (arrOut[0] == '!') {
             return display.innerHTML = 'Error! Clear excessive operators';
         }
-        strInner = fact(String(eval(strInner)));
+        strInner = fact(String(eval(strInner).toFixed(4)));
         return display.innerHTML =  strInner;
     }
     if (display.innerHTML.includes("%")) {
@@ -168,15 +168,15 @@ function calc() {
        
     }
     if (arrOut[0] != '!') {
-        result = String(eval(strInner));
+        result = String(eval(strInner).toFixed(4));
     }
     
     if (display.innerHTML != result && display.innerHTML != '' && strInner != '' &&
             display.innerHTML != 'Error! Clear excessive operators') {
         earlyResult = display.innerHTML;
         earlyResultInner  =  strInner;
-        strInner = String(eval(strInner));
-        return display.innerHTML = String(eval(strInner));
+        strInner = String(eval(strInner).toFixed(4));
+        return display.innerHTML = String(eval(strInner).toFixed(4));
 
     }
     display.innerHTML = earlyResult;
