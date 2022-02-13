@@ -71,7 +71,7 @@ factorial.addEventListener('click', function () {
 
 })
 percent.addEventListener('click', function percent() {
-    if (!strInner.includes('%') && !strInner.includes('n!')) {
+    if (!strInner.includes('%') && !display.innerHTML.includes('n!')) {
         display.innerHTML += this.innerHTML
         strInner += '%'
        }
@@ -110,7 +110,7 @@ let lastNum = strInner.substr(strInner.split(/[*/%+\-]/g).join('-').lastIndexOf(
         display.innerHTML = '.'
         strInner += '.'
         displaySize()
-    } else if (!lastNum.includes('.')) {
+    } else if (!lastNum.includes('.') && !display.innerHTML.includes('n!')) {
         display.innerHTML += '.'
         strInner += '.'
         displaySize()
