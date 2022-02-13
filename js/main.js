@@ -147,7 +147,6 @@ clear.addEventListener('click', function () {
 
 //==============calc=====================
 function calc() {
-    
     let result 
     let arrOut = strInner.replace(/[*/%+\-]/g, '!').split('')
     if (display.innerHTML.includes("n!") ) {
@@ -157,11 +156,7 @@ function calc() {
         if (arrOut[0] == '!') {
             return display.innerHTML = 'Error! Clear excessive operators';
         }
-        if (!Number.isInteger(eval(strInner))) {
-            strInner = String(eval(strInner).toFixed(6));
-            return display.innerHTML = String(eval(strInner).toFixed(6));
-        }
-        strInner = fact(String(eval(strInner)));
+        strInner = fact(String(eval(strInner).toFixed(4)));
         return display.innerHTML =  strInner;
     }
     if (display.innerHTML.includes("%")) {
@@ -170,29 +165,20 @@ function calc() {
         earlyResultInner  =  strInner;
         strInner = '' + prcnt(arr[0], arr[1]);
         return display.innerHTML = '' + prcnt(arr[0], arr[1]);
-        
+       
     }
     if (arrOut[0] != '!') {
-        if (!Number.isInteger(eval(strInner))) {
-            strInner = String(eval(strInner).toFixed(6));
-            return display.innerHTML = String(eval(strInner).toFixed(6));
-        }
-        result = String(eval(strInner));
+        result = String(eval(strInner).toFixed(4));
     }
-
+    
     if (display.innerHTML != result && display.innerHTML != '' && strInner != '' &&
             display.innerHTML != 'Error! Clear excessive operators') {
         earlyResult = display.innerHTML;
         earlyResultInner  =  strInner;
-        if (!Number.isInteger(eval(strInner))) {
-            strInner = String(eval(strInner).toFixed(6));
-            return display.innerHTML = String(eval(strInner).toFixed(6));
-        }
-        strInner = String(eval(strInner));
-        return display.innerHTML = String(eval(strInner));
+        strInner = String(eval(strInner).toFixed(4));
+        return display.innerHTML = String(eval(strInner).toFixed(4));
 
     }
-    
     display.innerHTML = earlyResult;
     strInner = earlyResultInner;
 }
